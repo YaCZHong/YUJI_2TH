@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- 用于占位 -->
+            <com.czh.yuji_2th.ui.widget.ScreenSizeView
+                android:id="@+id/fullscreen_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <include
+                android:id="@+id/layout_realtime"
+                style="@style/IncludeLayoutStyle"
+                layout="@layout/include_weather_realtime"
+                android:layout_above="@id/layout_hourly" />
+
+            <include
+                android:id="@+id/layout_hourly"
+                style="@style/IncludeLayoutStyle"
+                layout="@layout/include_weather_hourly"
+                android:layout_alignBottom="@id/fullscreen_view" />
+        </RelativeLayout>
+
+        <include
+            style="@style/IncludeLayoutStyle"
+            layout="@layout/include_weather_daily" />
+
+        <include
+            style="@style/IncludeLayoutStyle"
+            layout="@layout/include_weather_aqi" />
+
+        <include
+            style="@style/IncludeLayoutStyle"
+            layout="@layout/include_weather_other" />
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
